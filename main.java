@@ -1,4 +1,6 @@
 import java.util.Scanner;
+
+import javax.lang.model.type.NullType;
 public class Main{
 
     static int binarioParaDecimal(String numerob){
@@ -20,14 +22,22 @@ public class Main{
     static void decimalParaBinario(int numerod){
         int i = 0;
         int[] resto = new int[100];
+        int max;
         while (numerod > 0) {
                 resto[i] = numerod % 2;
                 numerod = numerod / 2;
                 i++;
             }
-            System.out.print("Binario: ");
-            for (i = i - 1; i >= 0; i--) {
+            max = i - 1;
+            System.out.println("Binario: ");
+            for (i = max; i >= 0; i--) {
                 System.out.print(resto[i]);
+                System.out.print("   |   ");
+            }
+            System.err.println();
+            for(i = max; i >= 0;i--){
+                System.out.printf("2^%d",i);
+                System.out.print(" |   ");
             }
     }
 
